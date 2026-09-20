@@ -40,7 +40,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
       <div className="flex items-center justify-between px-5 h-20 border-b border-slate-800/80 bg-gradient-to-r from-rose-950/20 to-transparent">
         <div className="flex items-center gap-2.5">
           <img
-            src="/logo_white_text.png"
+            src={`${import.meta.env.BASE_URL}logo_white_text.png`} 
             alt="CrushPad"
             className="h-9 w-auto object-contain drop-shadow-[0_2px_12px_rgba(255,45,85,0.35)]"
           />

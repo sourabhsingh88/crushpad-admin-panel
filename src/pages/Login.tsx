@@ -49,7 +49,8 @@ export const Login: React.FC = () => {
           <div className="flex flex-col items-center text-center mb-8">
             <div className="mb-2">
               <img
-                src="/logo_white_text.png"
+                // src="/logo_white_text.png"
+                 src={`${import.meta.env.BASE_URL}logo_white_text.png`} 
                 alt="CrushPad"
                 className="h-14 w-auto object-contain drop-shadow-[0_4px_20px_rgba(255,45,85,0.4)]"
               />
