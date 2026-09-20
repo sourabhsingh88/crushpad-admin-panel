@@ -37,18 +37,16 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
       }`}
     >
       {/* Brand Header */}
-      <div className="flex items-center gap-3 px-6 h-20 border-b border-slate-800/80 bg-gradient-to-r from-rose-950/20 to-transparent">
-        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-rose-500 to-pink-600 flex items-center justify-center shadow-lg shadow-rose-500/20 text-white font-black text-xl">
-          <Flame className="w-6 h-6 fill-white text-white" />
-        </div>
-        <div>
-          <div className="flex items-center gap-1.5 font-extrabold tracking-tight text-white text-lg">
-            <span>CrushPad</span>
-            <span className="text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded bg-rose-500/20 text-rose-400 border border-rose-500/30">
-              Admin
-            </span>
-          </div>
-          <p className="text-xs text-slate-400">Control Center</p>
+      <div className="flex items-center justify-between px-5 h-20 border-b border-slate-800/80 bg-gradient-to-r from-rose-950/20 to-transparent">
+        <div className="flex items-center gap-2.5">
+          <img
+            src="/logo_white_text.png"
+            alt="CrushPad"
+            className="h-9 w-auto object-contain drop-shadow-[0_2px_12px_rgba(255,45,85,0.35)]"
+          />
+          <span className="text-[10px] uppercase font-black tracking-wider px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-400 border border-rose-500/30 shadow-sm">
+            Admin
+          </span>
         </div>
       </div>
 

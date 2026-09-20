@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Flame, Shield, Lock, Mail, KeyRound, AlertCircle, Sparkles } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
-import { API_BASE_URL } from '../api/client';
+import { TARGET_BACKEND_URL } from '../api/client';
 
 export const Login: React.FC = () => {
   const navigate = useNavigate();
@@ -47,18 +47,21 @@ export const Login: React.FC = () => {
         <div className="bg-[#0f172a]/80 backdrop-blur-xl border border-slate-800/80 rounded-3xl p-8 shadow-2xl shadow-black/80">
           {/* Logo & Title */}
           <div className="flex flex-col items-center text-center mb-8">
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-rose-500 via-pink-500 to-rose-600 flex items-center justify-center shadow-xl shadow-rose-500/25 mb-4 ring-4 ring-rose-500/10">
-              <Flame className="w-9 h-9 fill-white text-white" />
+            <div className="mb-2">
+              <img
+                src="/logo_white_text.png"
+                alt="CrushPad"
+                className="h-14 w-auto object-contain drop-shadow-[0_4px_20px_rgba(255,45,85,0.4)]"
+              />
             </div>
-            <h1 className="text-2xl font-black tracking-tight text-white flex items-center gap-2">
-              <span>CrushPad</span>
-              <span className="text-xs uppercase font-extrabold px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-400 border border-rose-500/30">
-                Admin
+            <div className="flex items-center gap-2 mt-1">
+              <span className="text-[11px] uppercase font-black tracking-wider px-2.5 py-0.5 rounded-full bg-rose-500/20 text-rose-400 border border-rose-500/30">
+                Admin Control Center
               </span>
-            </h1>
-            <p className="text-slate-400 text-xs mt-1">Platform Operations & Cloudflare R2 Control</p>
+            </div>
+            <p className="text-slate-400 text-xs mt-2">Platform Operations & Cloudflare R2 Control</p>
             <p className="text-[11px] text-cyan-400 font-mono mt-1 px-2.5 py-0.5 rounded-full bg-cyan-950/40 border border-cyan-800/40">
-              API: {API_BASE_URL}
+              API: {TARGET_BACKEND_URL}
             </p>
           </div>
 

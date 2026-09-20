@@ -3,13 +3,11 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
-  const apiUrl = env.VITE_API_URL;
+  const apiUrl = env.VITE_API_URL || 'http://localhost:8080';
 
   return {
     plugins: [react()],
-
-    base: '/crushpad-admin-panel/',
-
+    base: '/',
     server: {
       port: 5173,
       host: true,
@@ -17,10 +15,15 @@ export default defineConfig(({ mode }) => {
         '/v1': {
           target: apiUrl,
           changeOrigin: true,
+          secure: false,
+          headers: {
+            'ngrok-skip-browser-warning': 'true',
+          },
         },
         '/uploads': {
           target: apiUrl,
           changeOrigin: true,
+          secure: false,
         },
       },
     },

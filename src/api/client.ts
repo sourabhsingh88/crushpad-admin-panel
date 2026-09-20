@@ -10,12 +10,17 @@ import {
   Page
 } from '../types';
 
-export const API_BASE_URL = (import.meta.env.VITE_API_URL || 'http://localhost:8080').replace(/\/+$/, '');
+export const TARGET_BACKEND_URL = (import.meta.env.VITE_API_URL || 'http://localhost:8080').replace(/\/+$/, '');
+
+// In Vite development mode, use relative baseURL ('') so requests route through Vite's dev proxy,
+// which avoids browser CORS blocks and ngrok interstitial warning screens.
+export const API_BASE_URL = import.meta.env.DEV ? '' : TARGET_BACKEND_URL;
 
 const api = axios.create({
   baseURL: API_BASE_URL,
   headers: {
     'Content-Type': 'application/json',
+    'ngrok-skip-browser-warning': '69420',
   },
 });
 
@@ -24,6 +29,8 @@ api.interceptors.request.use((config) => {
   const token = localStorage.getItem('crushpad_admin_token');
   const defaultKey = import.meta.env.VITE_ADMIN_SECRET_KEY || 'crushpad-admin-secret-key-2026';
   const secretKey = localStorage.getItem('crushpad_admin_secret') || defaultKey;
+
+  config.headers['ngrok-skip-browser-warning'] = '69420';
 
   if (token) {
     config.headers['Authorization'] = `Bearer ${token}`;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Menu, Bell, Shield, Radio, KeyRound } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
-import { API_BASE_URL } from '../../api/client';
+import { TARGET_BACKEND_URL } from '../../api/client';
 
 interface NavbarProps {
   onToggleSidebar: () => void;
@@ -34,7 +34,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onToggleSidebar }) => {
             <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
           </span>
           <span className="text-xs font-semibold text-emerald-400 uppercase tracking-wide truncate max-w-[220px] sm:max-w-xs font-mono">
-            Backend • {API_BASE_URL.replace(/^https?:\/\//, '')}
+            Backend • {TARGET_BACKEND_URL.replace(/^https?:\/\//, '')}
           </span>
         </div>
       </div>
