@@ -7,10 +7,13 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [react()],
-    base: '/',
+
+    base: '/crushpad-admin-panel/',
+
     server: {
       port: 5173,
       host: true,
+
       proxy: {
         '/v1': {
           target: apiUrl,
@@ -20,6 +23,7 @@ export default defineConfig(({ mode }) => {
             'ngrok-skip-browser-warning': 'true',
           },
         },
+
         '/uploads': {
           target: apiUrl,
           changeOrigin: true,
